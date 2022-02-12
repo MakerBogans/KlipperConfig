@@ -1,0 +1,32 @@
+### Configure which camera to use
+#
+# Available options are:
+# - auto: tries first usb webcam, if that's not available tries raspi cam
+# - usb: only tries usb webcam
+# - raspi: only tries raspi cam
+#
+# Defaults to auto
+#
+camera="raspi"
+
+### Additional options to supply to MJPG Streamer for the RasPi Cam
+#
+# See https://faq.octoprint.org/mjpg-streamer-config for available options
+#
+# Defaults to 10fps
+# 1280x720, 1920x1080
+camera_raspi_options="-fps 15 --q 95 -x 1280 -y 720 -ex auto"
+
+### Configuration of camera HTTP output
+#
+# Usually you should NOT need to change this at all! Only touch if you
+# know what you are doing and what the parameters mean.
+#
+# Below settings are used in the mjpg-streamer call like this:
+#
+#   -o "output_http.so -w $camera_http_webroot $camera_http_options"
+#
+# Current working directory is the mjpg-streamer base directory.
+#
+#camera_http_webroot="./www-mainsail"
+camera_http_options="-n -p 8081"
