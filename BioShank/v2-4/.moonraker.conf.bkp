@@ -1,15 +1,12 @@
 [server]
 host = 0.0.0.0
 port = 7125
-enable_debug_logging = False
 
 [data_store]
 temperature_store_size = 600
 gcode_store_size = 1000
 
 [file_manager]
-config_path = ~/klipper_config
-log_path = ~/klipper_logs
 
 [authorization]
 force_logins = True
@@ -37,10 +34,4 @@ enable_auto_refresh = True
 type = web
 repo = cadriel/fluidd
 path = ~/fluidd
-
-[update_manager client z_calibration]
-type = git_repo
-path = /home/pi/klipper_z_calibration
-origin = https://github.com/protoloft/klipper_z_calibration.git
-install_script = install.sh
 
