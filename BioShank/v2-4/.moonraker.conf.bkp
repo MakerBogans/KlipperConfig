@@ -1,19 +1,9 @@
 [server]
 host = 0.0.0.0
 port = 7125
-
-[data_store]
-temperature_store_size = 600
-gcode_store_size = 1000
-
-[file_manager]
+klippy_uds_address = /home/pi/printer_data/comms/klippy.sock
 
 [authorization]
-force_logins = True
-cors_domains = 
-	*.local
-	*.lan
-	*://app.fluidd.xyz
 trusted_clients = 
 	10.0.0.0/8
 	127.0.0.0/8
@@ -22,16 +12,28 @@ trusted_clients =
 	192.168.0.0/16
 	FE80::/10
 	::1/128
+cors_domains = 
+	http://*.lan
+	http://*.local
+	https://my.mainsail.xyz
+	http://my.mainsail.xyz
+	https://app.fluidd.xyz
+	http://app.fluidd.xyz
 
 [octoprint_compat]
 
 [history]
 
 [update_manager]
-enable_auto_refresh = True
+channel = dev
+refresh_interval = 168
 
-[update_manager client fluidd]
+[update_manager fluidd]
 type = web
-repo = cadriel/fluidd
+channel = stable
+repo = fluidd-core/fluidd
 path = ~/fluidd
+
+[file_manager]
+enable_object_processing = True
 
