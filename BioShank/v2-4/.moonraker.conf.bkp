@@ -13,12 +13,12 @@ trusted_clients =
 	FE80::/10
 	::1/128
 cors_domains = 
-	http://*.lan
-	http://*.local
-	https://my.mainsail.xyz
-	http://my.mainsail.xyz
-	https://app.fluidd.xyz
-	http://app.fluidd.xyz
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
 
 [octoprint_compat]
 
@@ -27,6 +27,13 @@ cors_domains =
 [update_manager]
 channel = dev
 refresh_interval = 168
+
+[update_manager fluidd-config]
+type = git_repo
+primary_branch = master
+path = ~/fluidd-config
+origin = https://github.com/fluidd-core/fluidd-config.git
+managed_services = klipper
 
 [update_manager fluidd]
 type = web
